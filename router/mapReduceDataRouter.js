@@ -118,6 +118,86 @@ router.get('/getMapReduceResultsTopPickrate', function(request, response){
     
 } );
 
+router.get('/getMapReduceResultsWorstPickrate', function(request, response){
+    
+    var query = request.query;
+    
+    if(!query.day)
+        return response.end("Invalid day");
+    
+    mongoHelper.mapReduceResultsWorstPickrate(query.day,
+                        function (err, data) {
+        
+                            if(err)
+                                return console.error('There was an error:', err);
+        
+                            response.json(data);
+
+                        });
+    
+    
+} );
+
+router.get('/getMapReduceResultsTopFirstPickrate', function(request, response){
+    
+    var query = request.query;
+    
+    if(!query.day)
+        return response.end("Invalid day");
+    
+    mongoHelper.mapReduceResultsTopFirstPickrate(query.day,
+                        function (err, data) {
+        
+                            if(err)
+                                return console.error('There was an error:', err);
+        
+                            response.json(data);
+
+                        });
+    
+    
+} );
+
+router.get('/getMapReduceResultsTopWinrate', function(request, response){
+    
+    var query = request.query;
+    
+    if(!query.day)
+        return response.end("Invalid day");
+    
+    mongoHelper.mapReduceResultsTopWinrate(query.day,
+                        function (err, data) {
+        
+                            if(err)
+                                return console.error('There was an error:', err);
+        
+                            response.json(data);
+
+                        });
+    
+    
+} );
+
+router.get('/getMapReduceResultsWorstWinrate', function(request, response){
+    
+    var query = request.query;
+    
+    if(!query.day)
+        return response.end("Invalid day");
+    
+    mongoHelper.mapReduceResultsWorstWinrate(query.day,
+                        function (err, data) {
+        
+                            if(err)
+                                return console.error('There was an error:', err);
+        
+                            response.json(data);
+
+                        });
+    
+    
+} );
+
 router.get('/getMapReduceResultsTopKills', function(request, response){
     
     var query = request.query;

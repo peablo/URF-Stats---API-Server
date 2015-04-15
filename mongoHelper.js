@@ -1075,6 +1075,70 @@ exports.mapReduceResultsTopPickrate = function (day, callback) {
     
 }
 
+exports.mapReduceResultsWorstPickrate = function (day, callback) {
+    
+    if(day != "all")
+        var day = Number(day);
+    
+    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.pickRate': 1 } ).toArray(function(err, data) {
+        
+        if (err)
+            return callback (err);
+        
+        callback(null, data);
+        
+      });
+    
+}
+
+exports.mapReduceResultsTopFirstPickrate = function (day, callback) {
+    
+    if(day != "all")
+        var day = Number(day);
+    
+    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.firstPickRate': -1 } ).toArray(function(err, data) {
+        
+        if (err)
+            return callback (err);
+        
+        callback(null, data);
+        
+      });
+    
+}
+
+exports.mapReduceResultsTopWinrate = function (day, callback) {
+    
+    if(day != "all")
+        var day = Number(day);
+    
+    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.winRate': -1 } ).toArray(function(err, data) {
+        
+        if (err)
+            return callback (err);
+        
+        callback(null, data);
+        
+      });
+    
+}
+
+exports.mapReduceResultsWorstWinrate = function (day, callback) {
+    
+    if(day != "all")
+        var day = Number(day);
+    
+    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.winRate': 1 } ).toArray(function(err, data) {
+        
+        if (err)
+            return callback (err);
+        
+        callback(null, data);
+        
+      });
+    
+}
+
 exports.mapReduceResultsTopKills = function (day, callback) {
     
     if(day != "all")
