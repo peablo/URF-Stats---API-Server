@@ -1080,7 +1080,7 @@ exports.mapReduceResultsWorstPickrate = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.pickRate': 1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.winRate': { $exists: true } }).limit( 10 ).sort( { 'value.pickRate': 1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1112,7 +1112,7 @@ exports.mapReduceResultsTopWinrate = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.winRate': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.winRate': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1128,7 +1128,7 @@ exports.mapReduceResultsWorstWinrate = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.winRate': 1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.winRate': 1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);

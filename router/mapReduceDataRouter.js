@@ -23,6 +23,9 @@ router.all('/mapReduceAllStats', function(request, response){
 
 router.get('/getMapReduceAllResults', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     mongoHelper.mapReduceAllResults(
@@ -39,6 +42,9 @@ router.get('/getMapReduceAllResults', function(request, response){
 } );
 
 router.get('/getMapReduceResultsByChampion', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -60,6 +66,9 @@ router.get('/getMapReduceResultsByChampion', function(request, response){
 
 router.get('/getMapReduceResultsByWinrate', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -79,6 +88,9 @@ router.get('/getMapReduceResultsByWinrate', function(request, response){
 } );
 
 router.get('/getMapReduceResultsByPickrate', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -100,6 +112,9 @@ router.get('/getMapReduceResultsByPickrate', function(request, response){
 
 router.get('/getMapReduceResultsTopPickrate', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -119,6 +134,9 @@ router.get('/getMapReduceResultsTopPickrate', function(request, response){
 } );
 
 router.get('/getMapReduceResultsWorstPickrate', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -140,6 +158,9 @@ router.get('/getMapReduceResultsWorstPickrate', function(request, response){
 
 router.get('/getMapReduceResultsTopFirstPickrate', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -159,6 +180,9 @@ router.get('/getMapReduceResultsTopFirstPickrate', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopWinrate', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -180,6 +204,9 @@ router.get('/getMapReduceResultsTopWinrate', function(request, response){
 
 router.get('/getMapReduceResultsWorstWinrate', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -199,6 +226,9 @@ router.get('/getMapReduceResultsWorstWinrate', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopKills', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -220,6 +250,9 @@ router.get('/getMapReduceResultsTopKills', function(request, response){
 
 router.get('/getMapReduceResultsTopGold', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -239,6 +272,9 @@ router.get('/getMapReduceResultsTopGold', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopAssists', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -260,6 +296,9 @@ router.get('/getMapReduceResultsTopAssists', function(request, response){
 
 router.get('/getMapReduceResultsTopKillingSprees', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -279,6 +318,9 @@ router.get('/getMapReduceResultsTopKillingSprees', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopMinionsKilled', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -300,6 +342,9 @@ router.get('/getMapReduceResultsTopMinionsKilled', function(request, response){
 
 router.get('/getMapReduceResultsTopPentaKills', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -319,6 +364,9 @@ router.get('/getMapReduceResultsTopPentaKills', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopDamage', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -340,6 +388,9 @@ router.get('/getMapReduceResultsTopDamage', function(request, response){
 
 router.get('/getMapReduceResultsTopHeal', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -359,6 +410,9 @@ router.get('/getMapReduceResultsTopHeal', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopCrowdControl', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -380,6 +434,9 @@ router.get('/getMapReduceResultsTopCrowdControl', function(request, response){
 
 router.get('/getMapReduceResultsTopTowerKills', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -399,6 +456,9 @@ router.get('/getMapReduceResultsTopTowerKills', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopUnrealKills', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -420,6 +480,9 @@ router.get('/getMapReduceResultsTopUnrealKills', function(request, response){
 
 router.get('/getMapReduceResultsTopFirstBlood', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -439,6 +502,9 @@ router.get('/getMapReduceResultsTopFirstBlood', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopFighters', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -460,6 +526,9 @@ router.get('/getMapReduceResultsTopFighters', function(request, response){
 
 router.get('/getMapReduceResultsTopTanks', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -479,6 +548,9 @@ router.get('/getMapReduceResultsTopTanks', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopSupports', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
@@ -500,6 +572,9 @@ router.get('/getMapReduceResultsTopSupports', function(request, response){
 
 router.get('/getMapReduceResultsTopAssasins', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -520,6 +595,9 @@ router.get('/getMapReduceResultsTopAssasins', function(request, response){
 
 router.get('/getMapReduceResultsTopMages', function(request, response){
     
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
     var query = request.query;
     
     if(!query.day)
@@ -539,6 +617,9 @@ router.get('/getMapReduceResultsTopMages', function(request, response){
 } );
 
 router.get('/getMapReduceResultsTopMarksmen', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
     
     var query = request.query;
     
