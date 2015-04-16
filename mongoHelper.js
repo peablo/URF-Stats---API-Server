@@ -1144,7 +1144,23 @@ exports.mapReduceResultsTopKills = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.kills': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.kills': -1 } ).toArray(function(err, data) {
+        
+        if (err)
+            return callback (err);
+        
+        callback(null, data);
+        
+      });
+    
+}
+
+exports.mapReduceResultsTopDeaths = function (day, callback) {
+    
+    if(day != "all")
+        var day = Number(day);
+    
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.deaths': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1160,7 +1176,7 @@ exports.mapReduceResultsTopGold = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.goldEarned': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.goldEarned': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1176,7 +1192,7 @@ exports.mapReduceResultsTopAssists = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.assists': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.assists': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1192,7 +1208,7 @@ exports.mapReduceResultsTopKillingSprees = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.killingSprees': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.killingSprees': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1208,7 +1224,7 @@ exports.mapReduceResultsTopMinionsKilled = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.minionsKilled': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.minionsKilled': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1224,7 +1240,7 @@ exports.mapReduceResultsTopPentaKills = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.pentaKills': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.pentaKills': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1240,7 +1256,23 @@ exports.mapReduceResultsTopDamage = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.totalDamageDealtToChampions': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.totalDamageDealtToChampions': -1 } ).toArray(function(err, data) {
+        
+        if (err)
+            return callback (err);
+        
+        callback(null, data);
+        
+      });
+    
+}
+
+exports.mapReduceResultsTopDamageTaken = function (day, callback) {
+    
+    if(day != "all")
+        var day = Number(day);
+    
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.totalDamageTaken': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1256,7 +1288,7 @@ exports.mapReduceResultsTopHeal = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.totalHeal': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.totalHeal': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1272,7 +1304,7 @@ exports.mapReduceResultsTopCrowdControl = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.totalTimeCrowdControlDealt': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.totalTimeCrowdControlDealt': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1288,7 +1320,7 @@ exports.mapReduceResultsTopTowerKills = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.towerKills': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.towerKills': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1304,7 +1336,7 @@ exports.mapReduceResultsTopUnrealKills = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.unrealKills': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.unrealKills': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1320,7 +1352,7 @@ exports.mapReduceResultsTopFirstBlood = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).limit( 10 ).sort( { 'value.firstBloodRate': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.picked': { $gte: 100 } }).limit( 10 ).sort( { 'value.firstBloodRate': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);

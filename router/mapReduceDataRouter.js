@@ -248,6 +248,29 @@ router.get('/getMapReduceResultsTopKills', function(request, response){
     
 } );
 
+router.get('/getMapReduceResultsTopDeaths', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
+    var query = request.query;
+    
+    if(!query.day)
+        return response.end("Invalid day");
+    
+    mongoHelper.mapReduceResultsTopDeaths(query.day,
+                        function (err, data) {
+        
+                            if(err)
+                                return console.error('There was an error:', err);
+        
+                            response.json(data);
+
+                        });
+    
+    
+} );
+
 router.get('/getMapReduceResultsTopGold', function(request, response){
     
     response.set('Content-Type', 'application/json');
@@ -374,6 +397,29 @@ router.get('/getMapReduceResultsTopDamage', function(request, response){
         return response.end("Invalid day");
     
     mongoHelper.mapReduceResultsTopDamage(query.day,
+                        function (err, data) {
+        
+                            if(err)
+                                return console.error('There was an error:', err);
+        
+                            response.json(data);
+
+                        });
+    
+    
+} );
+
+router.get('/getMapReduceResultsTopDamageTaken', function(request, response){
+    
+    response.set('Content-Type', 'application/json');
+    response.set('Access-Control-Allow-Origin', '*');
+    
+    var query = request.query;
+    
+    if(!query.day)
+        return response.end("Invalid day");
+    
+    mongoHelper.mapReduceResultsTopDamageTaken(query.day,
                         function (err, data) {
         
                             if(err)
