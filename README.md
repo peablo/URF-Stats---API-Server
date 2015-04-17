@@ -32,7 +32,7 @@ dev API:
 
 MapReduce API:
 
-/mapReduce/mapReduceAllStats - This just PERFORMS the MapReduce operations and replaces the chosen 
+/mapReduce/mapReduceAllStats - This just performs the MapReduce operations and replaces the previous results on the chosen collection.
 /mapReduce/getMapReduceAllResults
 /mapReduce/getMapReduceResultsByChampion (param champId) - returns the results for all days, for a certain champion, as an array, sorted by day ("all" goes last)
 /mapReduce/getMapReduceResultsByWinrate (param day) - All results for a certain day, sorted by winrate
