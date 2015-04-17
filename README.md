@@ -119,7 +119,7 @@ A MapReduce processed object looks like this:
         
       }
       
-  values: { // all sorts of calculated averages and percentages
+  value: { // all sorts of calculated averages and percentages
   
       pickRate
       
