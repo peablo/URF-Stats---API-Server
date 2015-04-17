@@ -1032,7 +1032,7 @@ exports.mapReduceResultsByWinrate = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).sort( { 'value.winRate': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.winRate': { $exists: true } }).sort( { 'value.winRate': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
@@ -1048,7 +1048,7 @@ exports.mapReduceResultsByPickrate = function (day, callback) {
     if(day != "all")
         var day = Number(day);
     
-    mapReduceResultsCollection.find({ '_id.day': day }).sort( { 'value.pickRate': -1 } ).toArray(function(err, data) {
+    mapReduceResultsCollection.find({ '_id.day': day, 'value.winRate': { $exists: true } }).sort( { 'value.pickRate': -1 } ).toArray(function(err, data) {
         
         if (err)
             return callback (err);
