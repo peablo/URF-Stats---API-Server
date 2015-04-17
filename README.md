@@ -110,14 +110,25 @@ The following queries return the top 10 popular (pickrate) champions of each rol
 A MapReduce processed object looks like this:
 
 {
+
   _id:{ // This is the Primary Key
+  
         day: (1 to 13 number (days urf was up) or "all")
+        
         championId: (championId number)
+        
       }
+      
   values: { // all sorts of calculated averages and percentages
+  
       pickRate
+      
       winRate
+      
       totalDamageDealt
+      
       ...
+      
   }
+  
 }
