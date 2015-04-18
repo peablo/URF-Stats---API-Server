@@ -1,6 +1,6 @@
 var mongodb = require('mongodb');
 
-var url = 'mongodb://urf:urf@ds061711.mongolab.com:61711/urfstatsdb';
+var url = 'mongodb://urf:urf@ds061701.mongolab.com:61701/urfstatsdbv2';
 
 var MongoClient = mongodb.MongoClient,
     database,
@@ -903,7 +903,7 @@ exports.mapReduceAllStats = function (callback) {
 
 var processFinalData = function (callback) {
     
-    exports.mapReduceResults (function (err, data) {
+    //exports.mapReduceAllResults (function (err, data) {
         
         
         banRatesByChampion(function (err, data){ // AGGREGATING BAN RATES
@@ -953,7 +953,7 @@ var processFinalData = function (callback) {
         
         
         
-    })
+    //});
     
 }
 
