@@ -102,7 +102,7 @@ var gamesCountByDay = function (callback) {
     }, function (err, data){
                 
                 if(err)
-                    callback (err);
+                    return callback (err);
         
                 //console.log(data);
 
@@ -120,9 +120,113 @@ var banRatesByChampion = function (callback) {
         var gameDay = Math.floor((this.matchCreation - 1427846400000) / 86400000) + 1; // day of april 2015 when the game was played
         
         
-        this.teams.forEach (function (team){
+            var teams = this.teams;
+        
+        if(teams[0].bans){
             
-            team.bans.forEach(function (ban){
+            var test = teams[0].bans[0];
+            
+            if(test){
+                var value ={
+                        banned : 1,
+                        firstBanned: ( ((test.pickTurn == 1) || (test.pickTurn == 2))? 1 : 0 )
+
+                    }
+
+                emit({championId: test.championId,
+                          day: Number(gameDay)}, value);
+                emit({championId: test.championId,
+                          day: "all"}, value);
+            }
+            
+            test = teams[0].bans[1];
+            
+            if(test){
+                var value ={
+                        banned : 1,
+                        firstBanned: ( ((test.pickTurn == 1) || (test.pickTurn == 2))? 1 : 0 )
+
+                    }
+
+                emit({championId: test.championId,
+                          day: Number(gameDay)}, value);
+                emit({championId: test.championId,
+                          day: "all"}, value);
+            }
+            
+            test = teams[0].bans[2];
+            
+            if(test){
+                var value ={
+                        banned : 1,
+                        firstBanned: ( ((test.pickTurn == 1) || (test.pickTurn == 2))? 1 : 0 )
+
+                    }
+
+                emit({championId: test.championId,
+                          day: Number(gameDay)}, value);
+                emit({championId: test.championId,
+                          day: "all"}, value);
+            }
+            
+        }
+        
+        if(teams[1].bans){
+            
+            var test = teams[1].bans[0];
+        
+            if(test){
+                var value ={
+                        banned : 1,
+                        firstBanned: ( ((test.pickTurn == 1) || (test.pickTurn == 2))? 1 : 0 )
+
+                    }
+
+                emit({championId: test.championId,
+                          day: Number(gameDay)}, value);
+                emit({championId: test.championId,
+                          day: "all"}, value);
+            }
+            
+            test = teams[1].bans[1];
+            
+            if(test){
+                var value ={
+                        banned : 1,
+                        firstBanned: ( ((test.pickTurn == 1) || (test.pickTurn == 2))? 1 : 0 )
+
+                    }
+
+                emit({championId: test.championId,
+                          day: Number(gameDay)}, value);
+                emit({championId: test.championId,
+                          day: "all"}, value);
+            }
+            
+            test = teams[1].bans[2];
+            
+            if(test){
+                var value ={
+                        banned : 1,
+                        firstBanned: ( ((test.pickTurn == 1) || (test.pickTurn == 2))? 1 : 0 )
+
+                    }
+
+                emit({championId: test.championId,
+                          day: Number(gameDay)}, value);
+                emit({championId: test.championId,
+                          day: "all"}, value);
+            }
+            
+        }
+        
+        
+        
+        
+        
+        
+        /*
+            teams[0].bans.forEach(function (ban){
                 
                 var value ={
                     banned : 1,
@@ -136,8 +240,23 @@ var banRatesByChampion = function (callback) {
                       day: "all"}, value);
                
             });
+        
+            teams[1].bans.forEach(function (ban){
+                
+                var value ={
+                    banned : 1,
+                    firstBanned: ( ((ban.pickTurn == 1) || (ban.pickTurn == 2))? 1 : 0 )
+                    
+                }
+                
+                emit({championId: ban.championId,
+                      day: Number(gameDay)}, value);
+                emit({championId: ban.championId,
+                      day: "all"}, value);
+               
+            });*/
             
-        });
+        
         
     }
     
@@ -171,7 +290,7 @@ var banRatesByChampion = function (callback) {
     }, function (err, data){
                 
         if(err)
-            callback (err);
+            return callback (err);
         
         
         callback (null, "OK");
@@ -635,7 +754,8 @@ exports.averageStats = function (champId, from, to, callback) {
 
 exports.mapReduceAllStats = function (callback) {
     
-
+            console.log("starting");
+    
             //MAPREDUCE ARGUMENTS AND FUNCTIONS
             
             var checkMirror = function (championId, list) {
@@ -883,7 +1003,7 @@ exports.mapReduceAllStats = function (callback) {
             }, function (err, data){
                 
                 if(err)
-                    callback (err);
+                    return callback (err);
                 
                 console.log("Initial MapReduce OK");
                 
@@ -892,7 +1012,7 @@ exports.mapReduceAllStats = function (callback) {
                 // NEXT STAGE
                 processFinalData(function (err, data){
                     if(err)
-                        callback(err);
+                        return callback(err);
                     
                     callback(null, data);
                 });
@@ -909,7 +1029,7 @@ var processFinalData = function (callback) {
         banRatesByChampion(function (err, data){ // AGGREGATING BAN RATES
             
             if(err)
-                callback (err);
+                return callback (err);
             
             console.log("Ban rates aggregated OK");
             
@@ -927,7 +1047,7 @@ var processFinalData = function (callback) {
                     mapReduceResultsCollection.updateMany({ '_id.day': day }, {$set: { 'value.totalDayGames': dayInfo.value }}, function(err, r) { // AGGREGATING GAME COUNTS PER DAY
                         
                         if(err)
-                            callback(err);
+                            return callback(err);
                         
                         //console.log(day);
                         
@@ -938,7 +1058,7 @@ var processFinalData = function (callback) {
                             
                             processFinalRates(function (err, data){ // NEXT STAGE
                                if(err)
-                                   callback(err);
+                                   return callback(err);
                                 
                                 callback (null, data);
                             });
@@ -986,7 +1106,7 @@ var processFinalRates = function(callback){ // CALCULATING RATES WITH THE DATA A
             }, function (err, data){
                 
         if(err)
-            callback (err);
+            return callback (err);
         
         console.log("Finished OK");
         
